@@ -1,7 +1,9 @@
 🌐 DevLinks | Duda Amaral
 Um projeto de link na bio responsivo com alternância de tema (light/dark), desenvolvido para centralizar minhas redes e conteúdos em uma interface moderna e elegante.
 
-📷 Preview
+## 🚀 Preview
+
+![Preview do projeto](./assets/preview.jpg)
 ✨ Funcionalidades
 🌗 Alternância entre modo claro e escuro
 
