@@ -9,7 +9,7 @@ Um projeto de **link na bio responsivo** com alternância de tema (light/dark), 
 ---
 
 ## 📷 Preview
-![Preview do Projeto](/assets/preview.jpg)
+![Preview do Projeto](README.md/assets/preview.jpg)
 
 ---
 
