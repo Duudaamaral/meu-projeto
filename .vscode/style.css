@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+html {
+    font-size: clamp(14px, 1.5vw, 16px);
+}
+
 :root {
     --text-color: #ffffff;
     --bg-url: url(../assets/bg-mobile.jpg);
@@ -11,7 +15,7 @@
     --surface-color-hover: rgba(255, 255, 255, 0.2);
     --high-light-color: rgba(255, 255, 255, 0.2);
     --stroke-color: rgba(255, 255, 255, 0.5);
-    --switch-bg: url(../assets/moon-stars.svg); /* Ícone padrão: lua */
+    --switch-bg: url(../assets/moon-stars.svg);
 }
 
 .light {
@@ -21,7 +25,7 @@
     --surface-color-hover: rgba(255, 255, 255, 0.2);
     --high-light-color: rgba(0, 0, 0, 0.1);
     --stroke-color: rgba(0, 0, 0, 0.5);
-    --switch-bg: url(../assets/sun.svg); /* Ícone no modo claro: sol */
+    --switch-bg: url(../assets/sun.svg);
 }
 
 body {
@@ -29,10 +33,20 @@ body {
     background-repeat: no-repeat;
     background-position: top center;
     background-size: cover;
-    background-attachment: fixed;
-    font-family: 'Inter', sans-serif;
+    background-attachment: scroll;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     color: var(--text-color);
     transition: background-image 0.3s ease, color 0.3s ease;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    min-height: 100vh;
+    min-height: 100dvh;
+}
+
+@media (min-width: 768px) {
+    body {
+        background-attachment: fixed;
+    }
 }
 
 #container {
@@ -43,7 +57,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    padding: 56px 24px 0; /* Adicionado um padding lateral para telas menores */
+    padding: clamp(32px, 6vw, 56px) 24px 0;
 }
 
 #profile {
@@ -53,7 +67,7 @@ body {
 #profile img {
     width: 112px;
     height: 112px;
-    object-fit: cover; /* Garante que a foto não distorça */
+    object-fit: cover;
     border-radius: 50%;
     margin: 0 auto;
     display: block;
@@ -85,13 +99,12 @@ body {
     top: 50%;
     left: 0;
     z-index: 2;
-    transform: translateY(-50%); /* Centraliza verticalmente */
-    transition: left 0.3s ease, background-image 0.3s ease; /* Removi o 'right' da transição */
+    transform: translateY(-50%);
+    transition: transform 0.3s ease, background-image 0.3s ease;
 }
 
 .light #switch button {
-    left: 100%; /* Move para a direita */
-    transform: translateY(-50%) translateX(-100%); /* Ajusta a posição final para não passar da borda */
+    transform: translate(100%, -50%);
 }
 
 #switch span {
@@ -102,7 +115,7 @@ body {
     border: 1px solid var(--stroke-color);
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
-    border-radius: 9999px;
+    border-radius: 999px;
 }
 
 /* links - lista */
@@ -121,7 +134,7 @@ ul li {
     border-radius: 8px;
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
-    transition: background 0.2s, border 0.2s;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 ul li a {
@@ -133,16 +146,28 @@ ul li a {
     text-align: center;
 }
 
-ul li:hover {
+/* hover só em dispositivos que suportam */
+@media (hover: hover) {
+    ul li:hover {
+        background: var(--surface-color-hover);
+        border: 1.5px solid var(--text-color);
+    }
+
+    #social-links a:hover {
+        background: var(--high-light-color);
+    }
+}
+
+/* fallback mobile */
+ul li:active {
     background: var(--surface-color-hover);
-    border: 1.5px solid var(--text-color);
 }
 
 /* social links */
 #social-links {
     display: flex;
     justify-content: center;
-    gap: 8px; /* Reduzi um pouco o gap para caber melhor */
+    gap: 8px;
     padding: 24px 0;
     font-size: 24px;
 }
@@ -153,12 +178,15 @@ ul li:hover {
     justify-content: center;
     padding: 12px;
     border-radius: 50%;
-    transition: background 0.2s;
-    color: var(--text-color); 
+    transition: background-color 0.2s ease;
+    color: var(--text-color);
 }
 
-#social-links a:hover {
-    background: var(--high-light-color);
+/* acessibilidade */
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--text-color);
+    outline-offset: 3px;
 }
 
 footer {
