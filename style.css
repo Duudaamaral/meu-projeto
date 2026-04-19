@@ -10,22 +10,22 @@ html {
 
 :root {
     --text-color: #ffffff;
-    --bg-url: url(../assets/bg-mobile.jpg);
+    --bg-url: url(./assets/bg-mobile.jpg);
     --surface-color: rgba(255, 255, 255, 0.05);
     --surface-color-hover: rgba(255, 255, 255, 0.2);
     --high-light-color: rgba(255, 255, 255, 0.2);
     --stroke-color: rgba(255, 255, 255, 0.5);
-    --switch-bg: url(../assets/moon-stars.svg);
+    --switch-bg: url(./assets/moon-stars.svg);
 }
 
 .light {
     --text-color: #000000;
-    --bg-url: url(../assets/bg-mobile-light.jpg);
+    --bg-url: url(./assets/bg-mobile-light.jpg);
     --surface-color: rgba(255, 255, 255, 0.8);
     --surface-color-hover: rgba(255, 255, 255, 0.2);
     --high-light-color: rgba(0, 0, 0, 0.1);
     --stroke-color: rgba(0, 0, 0, 0.5);
-    --switch-bg: url(../assets/sun.svg);
+    --switch-bg: url(./assets/sun.svg);
 }
 
 body {
